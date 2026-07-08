@@ -1,0 +1,74 @@
+/* todo-list */
+body{background-color: #f5f5f5;}
+#wrap{
+    position: relative;
+    /* 1. 글쓰기버튼, popup_bg를 고정하기 위한 부모 위치기준 설정 */
+    width:402px; min-height:874px;
+    background-color: #fff;
+    margin:0 auto
+}
+/* --------------------------------header */
+#wrap header{background-color:aquamarine;}
+#wrap header .top{
+    background-color:thistle;
+    /* flex사용기준 : 정렬하고 싶은 대상을 가진 부모 */
+    /* 정렬대상 : 왼쪽 h1, 오른쪽 div.right, 부모.top */
+    display:flex;/* 기본 메인축 수평(row) */
+    flex-flow:row nowrap;/* 메인축 방향(수평/수직), 줄바꿈(o/x) */
+    justify-content:space-between;/* 메인축정렬(양끝배치) */
+    padding:10px 0;
+}
+#wrap header .top .right{
+    display:flex; /* 검색a, 메뉴a 정렬 */
+    flex-flow:row nowrap; /* 검색메뉴 수직정렬, 줄바꿈 X */
+    gap:8px; /* 검색과 메뉴 사이의 여백 */
+}
+#wrap header nav {
+    display:flex;
+    flex-flow:row nowrap;
+    gap:12px;
+    padding:8px 0;
+}
+/* ----------------------------------main */
+#wrap main {padding:50px 15px 0;}
+#wrap main .todo_list{}
+#wrap main .todo_list li{
+    display:flex; flex-flow:row nowrap;
+    gap:20px; /* 자식 span_em 수평 여백 */
+    border-bottom:1px solid #222;
+    padding:10px 0; /* 내용과 사이안쪽 여백 */
+}
+#wrap main #write_btn{
+    background-color:pink;
+    width:42px; height:42px;
+    position:absolute;/* 2. 부모wrap을 기준으로 상대적 위치 설정 */
+    right:50px; bottom:50px; /* 3. 부모 위치 기준 */
+}
+#wrap main #write_btn{}
+/* ---------------------------------popup */
+#wrap main #popup{
+    background-color: #fff;
+    position:absolute;
+    width:311px; height:226px;
+    left:11%; top:35%;
+z-index:100;
+padding: 20px;
+}
+#wrap main #popup .user_write{
+    width:100%;
+}
+#wrap main #popup .enroll_btn{
+    background-color:pink;
+    width:46px; height:46px;
+    position:absolute;
+    bottom:20px; right:20px;
+}
+#wrap main #popup .enroll_btn>img{width:100%;}
+#wrap main #popup_bg{
+    position: absolute;
+    /* absolute 적용 시 w,h 모두 입력 필수 */
+    width:100%; height:100%;
+    top:0; left:0;
+    background-color:rgba(0,0,0,0.25);
+    /* div(block)기본크기 : w 100%, h(max-content 내용기준) */
+}
